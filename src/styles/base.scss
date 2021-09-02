@@ -1,0 +1,57 @@
+@import './variables';
+
+html {
+    font-size: $font-size-base;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: $bg-color;
+    line-height: $line-height-base;
+}
+
+h2, h3, p {
+    margin-bottom: $space-md;
+}
+
+h2 {
+    font-size: $font-size-big;
+}
+
+h3 {
+    font-size: $font-size-base;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    border: 0;
+    color: white;
+    border-radius: $border-radius;
+    background: $secondary-color;
+    padding: .25rem $space-md;
+    transition: all;
+    transition-duration: .2s;
+
+    &:not([disabled]) {
+        &:hover {
+            background: darken($secondary-color, 20%);
+            cursor:pointer;
+        }
+    
+        &:active {
+            background: darken($secondary-color, 30%);
+        }
+    }
+
+    &[disabled] {
+        background: lighten($secondary-color, 20%);
+    }
+}
+
+
+.container {
+    margin: 0 auto;
+    max-width: 50rem;
+}

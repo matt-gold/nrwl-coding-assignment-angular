@@ -1,0 +1,18 @@
+@import '../../../styles/variables';
+
+.ticket-list {
+    margin-bottom: $space-lg;
+
+    li {
+        border-bottom: 1px solid #e0e0e0;
+        padding-bottom: $space-md / 2;
+        margin-bottom:  $space-md / 2;
+        list-style-type: none;
+    }    
+}
+
+.actions {
+    button, input, label {
+        margin-right: $space-md;
+    }
+}

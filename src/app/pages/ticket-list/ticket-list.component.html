@@ -1,0 +1,29 @@
+<h3>Ticket List</h3>
+<section *ngIf="(model$ | async) as model">
+    <div>
+        <label>Filter: </label>
+        <select [disabled]="model.loading" (change)="selectAssignee($event.target.value)">
+            <option value="">(Select User)</option>
+            <option *ngFor="let user of model.users" [value]="user.id">{{ user.name }}</option>
+        </select>
+    </div>
+
+    <app-spinner [loading]="model.loading"></app-spinner>
+
+    <ul class="ticket-list" *ngIf="!model.loading">
+        <li *ngFor="let ticket of model.tickets">
+            <a routerLink="/tickets/{{ticket.id}}">
+                #{{ ticket.id }}: {{ticket.assigneeName}} - {{ ticket.description }}
+            </a>
+        </li>
+        <li *ngIf="!model.tickets?.length">
+            No results. 🙈
+        </li>
+    </ul>
+
+    <div class="actions">
+        <label>New Ticket:</label>
+        <input type="text" (input)="setDescription($event.target.value)" /> 
+        <button [disabled]="model.loading || !description" (click)="createTicket()">Create Ticket</button>
+    </div>
+</section>

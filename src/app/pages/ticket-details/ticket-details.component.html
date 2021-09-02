@@ -1,0 +1,26 @@
+<p><a routerLink="/tickets">⬅️ Return to List</a></p>
+    
+<section *ngIf="(model$ | async) as model">
+    <h2>Ticket #{{ticketId}}</h2>
+    
+    <div *ngIf="model.ticket as ticket; else ticketNotFound">
+        <p>Description: {{ ticket.description }}</p>
+        <p>Status: {{ ticket.completed ? 'Complete' : 'Incomplete' }}</p>
+        <p>Assigned to: {{ model.currentAssignee }}</p>
+    </div>
+    
+    <div class="actions">
+        <label>Users: </label>
+        <select [disabled]="model.loading" (change)="selectAssignee($event.target.value)">
+            <option>(Select)</option>
+            <option *ngFor="let user of model.users" [value]="user.id">{{ user.name }}</option>
+        </select>
+        <button [disabled]="model.loading || !newAssigneeId" (click)="assign(model.ticket)">Reassign</button>
+        <button [disabled]="model.loading || model.ticket?.completed" (click)="markComplete(model.ticket)">Mark Complete</button>
+    </div>
+    <ng-template #ticketNotFound>
+        <p *ngIf="!model.loading">This ticket does not exist! 🙈</p>
+    </ng-template>
+
+    <app-spinner [loading]="model.loading"></app-spinner>
+</section>

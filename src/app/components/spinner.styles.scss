@@ -1,0 +1,22 @@
+@import '../../styles/variables';
+
+// pasted this from one of those "css spinner" codepens
+.spinner { 
+    margin: $space-md;
+    display: inline-block;
+    width: $space-lg;
+    height: $space-lg;
+    border: 3px solid rgba($secondary-color, .3);
+    border-radius: 50%;
+    border-top-color: $secondary-color;
+    animation: spin .4s ease-in-out infinite;
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}

@@ -1,0 +1,19 @@
+<header>
+  <section class="container">
+    <h2>🧙 <span>Ticketcaster</span></h2>
+  </section>
+</header>
+<main>
+  <article class="container">
+    <div class="error" *ngIf="(error$ | async) as errorMessage">{{ errorMessage }}</div>
+    <router-outlet></router-outlet>
+  </article>
+</main>
+<footer>
+  <section class="container">
+    <p> 
+      &copy; Ticketcaster 2021. <br>
+      By using this product you acknowledge that you agree to our <a href="https://upload.wikimedia.org/wikipedia/en/a/a3/Escher%27s_Relativity.jpg" target="_blank">Terms and Conditions</a>.
+    </p>
+  </section>
+</footer>

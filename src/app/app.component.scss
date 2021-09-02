@@ -1,0 +1,50 @@
+@import '../styles/variables';
+
+header {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    background: white;
+    padding: $space-md;
+
+    border-bottom: 4px solid $primary-color;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, .7);
+
+    section { 
+        flex-grow: 1;  
+        h2 {
+            margin-bottom: 0;
+            span { letter-spacing: .2rem }
+        }
+    }
+}
+
+main { 
+    margin: 40px auto;
+
+    article {
+        background: white;
+        border-radius: $border-radius;
+        box-shadow: 0 5px 6px 0 rgba(0, 0, 0, .1);
+        min-height: 25rem;
+        padding: $space-lg;
+    }
+    
+    .error {
+        &:before {
+            content: '⚠';
+            display: inline-block;
+            margin-right: $space-md;
+            font-size: $font-size-big;
+        }
+        color: $error-color;
+        margin-bottom: $space-md;
+    }
+}
+
+footer {
+    padding: $space-md;
+    color: #666;
+    font-size: $font-size-base * .8;
+    line-height: $line-height-base * .8;
+}
